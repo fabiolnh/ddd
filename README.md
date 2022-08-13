@@ -17,7 +17,7 @@ A way to develop a software focusing in the core of the application (the domain)
   Ex: When you have two words with two different meaning, you are in a different bounded context. Ex: Sell "Ticket", Support "Ticket". Ticket is a different entity for each context.
   Ex2: When you have two different words that have the same meaning, probably you are in a different context, too.
 6) Clarify the business complexity and the technical complexity 
-7) Context Mapping:
+7) Context Mapping: ( A project that facilitates these conecpts with some images and a miro to start de design of the contexts: https://github.com/ddd-crew/context-mapping )
   - Partnership: Communication between two teams
   - Shared Kernel: Ex: a lib shared between teams
   - Customer-Supplier Development: One service consumes and the other supply
@@ -27,4 +27,3 @@ A way to develop a software focusing in the core of the application (the domain)
   - Publisher language: The consumer has to use the same language to consume the service
   - Separate ways: the contexts do not communicate with each other
   - Big Ball of Mud: a big system with complex things mixed and you have to deal with it
-  A project that facilitates these conecpts with some images and a miro to start de design of the contexts: https://github.com/ddd-crew/context-mapping
