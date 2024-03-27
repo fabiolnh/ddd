@@ -1,5 +1,4 @@
-# DDD
-Domain Driven Design
+# DDD - Domain Driven Design (Currently Studying)
 
 A way to develop a software focusing on the core of the application (the domain). Aiming understand the rules, processes and complexity, separating other complex points that commonly are added during the development
 
@@ -34,3 +33,7 @@ Ex: When you have two words with two different meanings, you are in a different 
   - Separate ways: the contexts do not communicate with each other
   - Big Ball of Mud: a big system with complex things mixed and you have to deal with it
 ```
+
+#### Tactical Modeling and Patterns
+
+- 
