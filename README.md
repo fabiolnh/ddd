@@ -34,6 +34,14 @@ Ex: When you have two words with two different meanings, you are in a different 
   - Big Ball of Mud: a big system with complex things mixed and you have to deal with it
 ```
 
+### Branas
+
+- The domain has to be distributed the complexity in different objects
+
 #### Tactical Modeling and Patterns
 
+- **Entity**: Represent a business rule. Abstract independent rules. They have identity, state and suffer mutation in time.
+  * Ex: A Buy in an online store. It can change status to aproved, disaproved, delivered, etc. (UUID could be the identity. State can be the status. Mutation could be any value in it). It has to be Identity to have rastreability.
+- **Value Objects**: There is an independent busiless rule, too. However, it protects the value to be consistent. You do not modify the value. It is always imutable. 
+    * Ex: CPF, Password, Color, Coordanate, Email, etc. (you have to send the rule to inside this object. Ex: a regex of cpf in the constructor inside of the Value Object "CPF)
 - 
