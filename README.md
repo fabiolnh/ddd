@@ -36,12 +36,29 @@ Ex: When you have two words with two different meanings, you are in a different 
 
 ### Branas
 
-- The domain has to be distributed the complexity in different objects
+- The domain has to be distributed the complexity in different domain objects
 
 #### Tactical Modeling and Patterns
 
+- Get the business rule and distribute it with these separation:
+
 - **Entity**: Represent a business rule. Abstract independent rules. They have identity, state and suffer mutation in time.
+  * Is has identity and change the status as pass the time.
   * Ex: A Buy in an online store. It can change status to aproved, disaproved, delivered, etc. (UUID could be the identity. State can be the status. Mutation could be any value in it). It has to be Identity to have rastreability.
-- **Value Objects**: There is an independent busiless rule, too. However, it protects the value to be consistent. You do not modify the value. It is always imutable. 
+- **Value Objects**: There is an independent busiless rule, too. However, it protects the value to be consistent. You do not modify the value. It is always imutable.
+    * Represents one or more values, are imutable and when instantiates, they are reinstantiates
     * Ex: CPF, Password, Color, Coordanate, Email, etc. (you have to send the rule to inside this object. Ex: a regex of cpf in the constructor inside of the Value Object "CPF)
-- 
+- **Domain Service**: Does specific tasks in the domain that do not have state. This rule has to not fit in another place. If there is an Value Object that has more sense, put it in Value Object and does not separate it in "Domain Service".
+    * Abstracts business rules that are not a part of an entity or a value object
+    * Ex: DistanceCalculator: get two coordanates and calculate. (You can put it inside the Value Object "Ride" or put it outsite as "Domain Service".
+    * OBS: Take care to not use Domain Service for everything.
+- **Aggregate**: Is is the relashionship of Domain Objects (Entities and Value Objects) leadered by an Root Entity.
+    * Ex: Account -> Account (Aggregate Root, Entity), Name (VO), Email (VO), Cpf (VO), CarPlate (VO)
+    * OBS: One aggregate can reference another aggregate
+    * OBS: The entity always will be a part of an Aggregate
+    * OBS: There is the Aggregate Root (
+    * OBS: Create little aggregates.
+    * OBS: Reference it with identities (IDs)
+    * OBS: When you feel that the aggregate is big,
+    * OBS: Aggregates dos not have to reflect the database. They are different things.
+- **Repositories**: Do the persistence of aggregates.
