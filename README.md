@@ -38,6 +38,14 @@ Ex: When you have two words with two different meanings, you are in a different 
 
 - The domain has to be distributed the complexity in different domain objects
 
+#### Transaction Script VS Domain Model
+
+- Transaction Script: Accumullate too much responsability. In it, you only have behavior. (You separate the caracteristics of the object from the behavior of the object). Uou use a Oriented Language as a Procedure Language.
+  * Ex: Service
+  * OBS: It is not a problem. It is only a form of how you express your design.
+- Domain Model: You put the express everything with objects (behavior and caracteristics). Espressing business rules more complexity. A Object that incorporate Behaviors and Caracteristics, expressing business rules more complex, allowing efficient distribution.
+  * Ex: Use Case (orchestration of the domain) with a Domain Object (Ex: Domain Service)
+
 #### Tactical Modeling and Patterns
 
 - Get the business rule and distribute it with these separation:
