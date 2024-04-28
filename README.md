@@ -51,13 +51,14 @@ Ex: When you have two words with two different meanings, you are in a different 
 - Tactical: How to implement the Domain layer
 - Ubiquotous Language: Not always the demanding are clear. (what are coded, what are written in a documentation and what are talked about). You stress the communication to get the ideal terms.
 - OBS: If you want to separate the Domain Objects in the Clean Architecture Design, you put it in the "Entity" Layer (Enterprise Business Rules).  
-- Get the business rule and distribute it with these separation:
+
+Get the business rule and distribute it with these separation\: 
 
 1) **Entity**: Represent a business rule. Abstract independent rules. They have IDENTITY, STATE and suffer MUTATION in time.
-  * Is has identity and change the status as pass the time.
-  * Ex: A Purchase in an online store. It can change status to aproved, disaproved, delivered, canceled, in transit, etc. (UUID could be the identity. State can be the status. Mutation could be any value in it).
-  * Ex2: Account (It can change the status to blocked, password changed, etc)
-  * Ex3: Ride (It can change the status to in transit, finished, etc. after finished, the traffic value is updated)
+    * Is has identity and change the status as pass the time.
+    * Ex: A Purchase in an online store. It can change status to aproved, disaproved, delivered, canceled, in transit, etc. (UUID could be the identity. State can be the status. Mutation could be any value in it).
+    * Ex2: Account (It can change the status to blocked, password changed, etc)
+    * Ex3: Ride (It can change the status to in transit, finished, etc. after finished, the traffic value is updated)
 2) **Value Objects**: There is an independent busiless rule, too. However, it protects the value to be consistent. You do not modify the value. It is always imutable, the change implics in its substitution. They are identified by its value, not the identity (as Entity is). You do not modify the Value, you reinstanciate it.
     * Represents one or more values, are imutable and when instantiates, they are reinstantiated
     * Ex: CPF, Password, Color, Coordanate, Email, etc. (you have to send the rule to inside this object. Ex: a regex of cpf in the constructor inside of the Value Object "CPF)
@@ -67,13 +68,14 @@ Ex: When you have two words with two different meanings, you are in a different 
     * OBS: Take care to not use Domain Service for everything.
 4) **Aggregate**: Is is the relashionship of Domain Objects (Entities and Value Objects) leadered by an Root Entity.
     * Ex: Account -> Account (Aggregate Root, Entity), Name (VO), Email (VO), Cpf (VO), CarPlate (VO)
-    * OBS: One aggregate can reference another aggregate
-    * OBS: The entity always will be a part of an Aggregate
-    * OBS: There is the Aggregate Root (
-    * OBS: Create little aggregates.
-    * OBS: Reference it with identities (IDs)
-    * OBS: When you feel that the aggregate is big,
-    * OBS: Aggregates dos not have to reflect the database. They are different things.
+    * OBS:
+      * One aggregate can reference another aggregate
+      * The entity always will be a part of an Aggregate
+      * There is the Aggregate Root (
+      * Create little aggregates.
+      * Reference it with identities (IDs)
+      * When you feel that the aggregate is big,
+      * Aggregates dos not have to reflect the database. They are different things.
 5) **Repositories**: Do the persistence of aggregates. It should return the Entity, too.
 
 #### Strategic Modeling
