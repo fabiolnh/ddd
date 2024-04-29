@@ -108,3 +108,21 @@ The concept of Tactical is: Get the business rules and distribute it with these 
 
 - Understanding the Domain as a whole and decoupling this Domain in small parts (knowledge areas).
 - You do not only see the specific project, you see the organization as a whole.
+- It is always applicable, different from Taticcal
+- Domain: "Is the problem" of what we need to solve
+- We need to watch the whole
+- Every domain has to have a subdomain
+- Subdomais: (Knowledge Areas)
+  * **Core or Basic**: More important. Brings value to the company. You put all the force to it.
+  * **Support**: Complementary with the Core. Without it there is no success in the business
+  * **Generic**: can be delegated to another company
+- Bounded Context: Is the project (Code Based)
+- Ex: Online Product Sell System
+- OBS: subdomain and Bounder Context are not always are 1:1
+- <figure>
+- Bounded context is a form to modularizate, to reduce the accouplament in the code
+- Shared Kernel: Shared Code. Ex: a lib shared between teams
+- Anticorruption Layer: Absorve the difference that were come from an external layer. Ex: Transform something from external to something to obiquous language.
+- OBS: Not all bounded context need to be develop as the same (ex: not all has to be developed with a tactical model)
+- OBS: The border of The Bounded Context is excelent to define a microservice
+-  
