@@ -125,4 +125,4 @@ The concept of Tactical is: Get the business rules and distribute it with these 
 - Anticorruption Layer: Absorve the difference that were come from an external layer. Ex: Transform something from external to something to obiquous language.
 - OBS: Not all bounded context need to be develop as the same (ex: not all has to be developed with a tactical model)
 - OBS: The border of The Bounded Context is excelent to define a microservice
--  
+- Gateway: A pattern to access another Bounded Context.
