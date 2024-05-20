@@ -5,7 +5,7 @@ A way to develop a software focusing on the core of the application (the domain)
 - It has to be applied only in complex softwares. Simple software is not necessary.
 - Domain: The core of the software. Main function that will be developed (general vision).
 ```
-  - Peace is more important: Core Domain. If it does not exist, there is no sense to the rest subdomains exist. 
+  - Peace is more important: Core Domain. If it does not exist, there is no sense to the rest of the subdomains exist. 
   - The core usually is the differential competitive of the company
 ```
 - Subdomain: separated pieces that form the domain (details). smaller domains.
@@ -55,17 +55,17 @@ Ex: When you have two words with two different meanings, you are in a different 
 The concept of Tactical is: Get the business rules and distribute it with these separation\: 
 
 1) **Entity**: Represent a business rule. Abstract independent rules. They have IDENTITY, STATE and suffer MUTATION in time.
-    * It has identity and change the status as pass the time.
+    * It has an identity and change the status as pass the time.
     * Ex: A Purchase in an online store. It can change status to approved, disapproved, delivered, canceled, in transit, etc. (UUID could be the identity. State can be the status. Mutation could be any value in it).
     * Ex2: Account (It can change the status to blocked, password changed, etc)
     * Ex3: Ride (It can change the status to in transit, finished, etc. after finished, the traffic value is updated)
-2) **Value Objects**: There is an independent business rule, too. However, it protects the value to be consistent. You do not modify the value. It is always immutable, the change implics in its substitution. They are identified by its value, not the identity (as Entity is). You do not modify the Value, you re instantiate it.
+2) **Value Objects**: There is an independent business rule, too. However, it protects the value to be consistent. You do not modify the value. It is always immutable, the change implics in its substitution. They are identified by its value, not the identity (as Entity is). You do not modify the Value, you re-instantiate it.
     * Represents one or more values, are immutable and when instantiates, they are re instantiated
     * Value Objects can be independent. You can use it in other Entities
     * Ex: CPF, Password, Color, Coordinate, Email, etc. (you have to send the rule to inside this object. Ex: a regex of cpf in the constructor inside of the Value Object "CPF). Then, everytime that you want to change its value, you instantiate it again.
 3) **Domain Service**: Does specific tasks in the domain that do not have state.
     * It is indicated when an operation that you want to execute **does not fit in an Entity or in a Value Object**.
-    * This rule has to not fit in another place. If there is a Value Object that has more sense, put it in Value Object and does not separate it in "Domain Service".
+    * This rule has to not fit in another place. If there is a Value Object that has more sense, put it in the Value Object and does not separate it in "Domain Service".
     * Abstracts business rules that are not a part of an entity or a value object
     * Ex: DistanceCalculator: get two coordinates and calculate. (You can put it inside the Value Object "Ride" or put it outside as "Domain Service".
     * Ex2: TokenGenerator: generate a token according to the email.
@@ -88,7 +88,7 @@ The concept of Tactical is: Get the business rules and distribute it with these 
       * An Entity always will be a part of an Aggregate (if not, such as an entity without a VO, the own Entity is an Aggregate)
       * The Aggregate defines the repository. (we always have the relation of 1:1 from Aggregate to Repository)
       * If the repository is hard to implement, maybe the Aggregate is too big and can be separated.
-      * Aggregates does not have to reflect the database. They are different things. The relationship of database were done by normalization to facilitate persistence.
+      * Aggregates does not have to reflect the database. They are different things. The relationships of database were done by normalization to facilitate persistence.
       * An Entity that is a part of an Aggregate can be a part of another Aggregate? It is not good. No sense.
       * You you want to separate into directories in your project, there is no directory for "aggregates"
 5) **Repositories**: It is an **extension** of a domain responsible for the persistence of aggregates, separating the infrastructure. (it is not a domain object, it is only an extension. It is separated)
@@ -97,10 +97,10 @@ The concept of Tactical is: Get the business rules and distribute it with these 
      * The repository deals with the **whole Aggregate**. While the DAO has a granularity defined (DAO does not have compromised with the Domain Object (different from Repository).
      * Questions:
        * Only a part of an Aggregate changed, can I persist only this part? The persistence is always of the whole Aggregate, however, the repository can decide what registries in the database have to be updated. OBS: The role of the Repository is to always receive and return the whole domain object.
-       * Can I get only a part of an Aggregate? If you are in this situation, this means that the Aggregate is too big and it could be separated in small parts.
+       * Can I get only a part of an Aggregate? If you are in this situation, this means that the Aggregate is too big and it could be separated into small parts.
        * Can I use Lazy/Loading in the Aggregate?  If you use it, you will get only a part of the aggregate. With it, you can show an invalid result. So, do not do it. Or you restore the whole object or you do not restore!
        * Is it possible to use different filters to get an Aggregate? You can use the filter (resulting in one or more aggregates).
-       * Can we use repository to generate a Report or a Statistic? The problem is that repository has to respect the Aggregate. Renderize it with a repository can be too complex. Prefer to use CQRS with separate queries. 
+       * Can we use a repository to generate a Report or a Statistic? The problem is that the repository has to respect the Aggregate. Renderize it with a repository can be too complex. Prefer to use CQRS with separate queries. 
      * Do the persistence of aggregates. It should return the Entity, too.
 6) **Factories**: Allow the creation of some domain objects following some criteria. 
 
@@ -108,22 +108,22 @@ The concept of Tactical is: Get the business rules and distribute it with these 
 
 - Understanding the Domain as a whole and decoupling this Domain in small parts (knowledge areas).
 - You do not only see the specific project, you see the organization as a whole.
-- It is always applicable, different from Taticcal
+- It is always applicable, different from Tactical
 - Domain: "Is the problem" of what we need to solve
 - We need to watch the whole
 - Every domain has to have a subdomain
-- Subdomais: (Knowledge Areas)
+- Subdomains: (Knowledge Areas)
   * **Core or Basic**: More important. Brings value to the company. You put all the force to it.
   * **Support**: Complementary with the Core. Without it there is no success in the business
   * **Generic**: can be delegated to another company
 
   ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/Subdomains.png)
 
-- Bounded Context: Is the project (Code Based) (in DDD, it does not worry about resources. Ex: a bouded context can be a microservice, but DDD does not know what microservice is. But DDD, it does not matter. DDD is worries about the Domain). It is a way to modulirize. To reduce accoumplament in the code.
+- Bounded Context: Is the project (Code Based) (in DDD, it does not worry about resources. Ex: a bounded context can be a microservice, but DDD does not know what microservice is. But DDD, it does not matter. DDD is worried about the Domain). It is a way to modularize. To reduce accouplement in the code.
 - Ex: Online Product Sell System
 - OBS: Subdomain and Bounder Context are not always are 1:1
   ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/Subdomains%20Decomposion.png)
-  * C -> Molotythic
+  * C -> Monolithic
 
   ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/Example.png)
 
@@ -133,9 +133,9 @@ The concept of Tactical is: Get the business rules and distribute it with these 
   * Upstream: It is what you are accessing
   * Downstream: It is who is accessing
   * (Downstream consumes Upstream)
-- Bounded context is a form to modularizate, to reduce the accouplament in the code
+- Bounded context is a form to modularize, to reduce the accouplement in the code
 - Shared Kernel: Shared Code. Ex: a lib shared between teams
-- Anticorruption Layer: Absorve the difference that were come from an external layer. Ex: Transform something from external to something to obiquous language.
+- Anticorruption Layer: Absorb the difference that comes from an external layer. Ex: Transform something from external to something to ubiquitous language.
 - OBS: Not all bounded context need to be develop as the same (ex: not all has to be developed with a tactical model)
-- OBS: The border of The Bounded Context is excelent to define a microservice
+- OBS: The border of The Bounded Context is excellent to define a microservice
 - Gateway: A pattern to access another Bounded Context.
