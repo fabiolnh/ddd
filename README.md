@@ -1,4 +1,4 @@
-# DDD - Domain Driven Design (Currently Studying)
+# DDD - Domain Driven Design
 
 A way to develop a software focusing on the core of the application (the domain). Aiming understand the rules, processes and complexity, separating other complex points that commonly are added during the development
 
@@ -116,10 +116,17 @@ The concept of Tactical is: Get the business rules and distribute it with these 
   * **Core or Basic**: More important. Brings value to the company. You put all the force to it.
   * **Support**: Complementary with the Core. Without it there is no success in the business
   * **Generic**: can be delegated to another company
-- Bounded Context: Is the project (Code Based)
+
+  ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/Subdomains.png)
+
+- Bounded Context: Is the project (Code Based) (in DDD, it does not worry about resources. Ex: a bouded context can be a microservice, but DDD does not know what microservice is. But DDD, it does not matter. DDD is worries about the Domain). It is a way to modulirize. To reduce accoumplament in the code.
 - Ex: Online Product Sell System
-- OBS: subdomain and Bounder Context are not always are 1:1
-- <figure>
+- OBS: Subdomain and Bounder Context are not always are 1:1
+  ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/Subdomains%20Decomposion.png)
+  * C -> Molotythic
+
+  ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/Example.png)
+  * 3 Bounded Contexts
 - Bounded context is a form to modularizate, to reduce the accouplament in the code
 - Shared Kernel: Shared Code. Ex: a lib shared between teams
 - Anticorruption Layer: Absorve the difference that were come from an external layer. Ex: Transform something from external to something to obiquous language.
