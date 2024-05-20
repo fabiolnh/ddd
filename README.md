@@ -126,7 +126,13 @@ The concept of Tactical is: Get the business rules and distribute it with these 
   * C -> Molotythic
 
   ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/Example.png)
-  * 3 Bounded Contexts
+
+- Example of a system:
+  ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/System.png)
+
+  * Upstream: It is what you are accessing
+  * Downstream: It is who is accessing
+  * (Downstream consumes Upstream)
 - Bounded context is a form to modularizate, to reduce the accouplament in the code
 - Shared Kernel: Shared Code. Ex: a lib shared between teams
 - Anticorruption Layer: Absorve the difference that were come from an external layer. Ex: Transform something from external to something to obiquous language.
