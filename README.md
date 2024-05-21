@@ -123,8 +123,8 @@ The concept of Tactical is: Get the business rules and distribute it with these 
 - Ex: Online Product Sell System
 - OBS: Subdomain and Bounder Context are not always are 1:1
   ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/Subdomains%20Decomposion.png)
-  * C -> Monolithic
 
+- From book:
   ![Branas](https://github.com/fabiolnh/ddd/blob/main/assets/Example.png)
 
 - Example of a system:
